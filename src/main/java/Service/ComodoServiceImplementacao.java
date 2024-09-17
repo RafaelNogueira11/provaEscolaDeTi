@@ -2,14 +2,16 @@ package Service;
 
 import Repository.ComodoRepository;
 import entity.Comodo;
+import entity.Imovel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 
+import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Service
-public class ComodoServiceImplementacao{
-/*public class ComodoServiceImplementacao implements ComodoService{
+public class ComodoServiceImplementacao implements ComodoService{
 
     @Autowired
     private ComodoRepository comodoRepository;
@@ -23,12 +25,13 @@ public class ComodoServiceImplementacao{
     public List<Comodo> findAllComodo() {
         List<Comodo> allComodo = comodoRepository.findAll();
         return allComodo;
+    }
 
     @Override
     public Comodo getComodoById(Long id) {
         Optional<Comodo> comodo = comodoRepository.findById(id);
         if (comodo.isPresent()) {
-            return (List<Comodo>) comodo.get();
+            return comodo.get();
         }
         return null;
     }
@@ -36,10 +39,8 @@ public class ComodoServiceImplementacao{
     @Override
     public Comodo updateComodoById(Long id, Comodo comodo) {
         Optional<Comodo> comodo1 = comodoRepository.findById(id);
-
         if (comodo1.isPresent()) {
             Comodo originalComodo = comodo1.get();
-
             return comodoRepository.save(originalComodo);
         }
         return null;
@@ -49,8 +50,9 @@ public class ComodoServiceImplementacao{
     public String deleteComodoById(Long id) {
         if (comodoRepository.findById(id).isPresent()) {
             comodoRepository.deleteById(id);
-            return "Comodo deletado";
+            return "Imovel deletado";
         }
-        return "sem comodos";
-    }*/
+        return "sem imoveis";
+    }
+
 }

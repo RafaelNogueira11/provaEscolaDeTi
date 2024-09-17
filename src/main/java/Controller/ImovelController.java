@@ -1,6 +1,7 @@
 package Controller;
 
 import Service.ImovelService;
+import Service.ImovelServiceImplementacao;
 import entity.Imovel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,31 +12,31 @@ import java.util.List;
 public class ImovelController {
 
     @Autowired
-    private ImovelService imovelService;
+    private ImovelServiceImplementacao imovelServiceImplementacao;
 
     @PostMapping("/imovel")
     public Imovel saveimovel(@RequestBody Imovel imovel) {
-        return imovelService.saveImovel(imovel);
+        return imovelServiceImplementacao.saveImovel(imovel);
     }
 
     @GetMapping("/imovel")
     public List<Imovel> getAllImovel() {
-        return imovelService.findAllImovel();
+        return imovelServiceImplementacao.findAllImovel();
     }
 
     @GetMapping("/imovel/{id}")
     public Imovel getImovelById(@PathVariable("id") Long id) {
-        return imovelService.getImovelById(id);
+        return imovelServiceImplementacao.getImovelById(id);
     }
 
     @PutMapping("/imovel/{id}")
     public Imovel updateImovel(@PathVariable("id") Long id, @RequestBody Imovel imovel) {
-        return imovelService.updateImovelById(id, imovel);
+        return imovelServiceImplementacao.updateImovelById(id, imovel);
     }
 
     @DeleteMapping("/imovel/{id}")
     public String deleteImovel(@PathVariable("id") Long id) {
-        return imovelService.deleteImovelById(id);
+        return imovelServiceImplementacao.deleteImovelById(id);
     }
 
 }
